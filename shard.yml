@@ -1,0 +1,14 @@
+name: CrystalCiv
+version: 0.1.0
+
+authors:
+  - Lunari8546 <lunari8546@gmail.com>
+
+description: 
+  A civilization-building strategy game with fantasy aspects in Discord.
+
+dependencies:
+  dotenv:
+    github: drum445/dotenv
+  discordcr:
+    github: shardlab/discordcr
