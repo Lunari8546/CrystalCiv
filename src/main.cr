@@ -1,32 +1,19 @@
-require "dotenv"
 require "discordcr"
 
-require "./utils/*"
+require "./bot/**"
 
-ENVHASH = Dotenv.load
-
-prefix = "cc"
+Config.load
 
 client = Discord::Client.new(
-  token: "Bot #{ENVHASH["TOKEN"]}",
-  client_id: ENVHASH["CLIENT_ID"].to_u64
+  "Bot #{ENV["TOKEN"]}",
+  ENV["CLIENT_ID"].to_u64
 )
 
-client.on_message_create do |msg|
-  if msg.content.starts_with?(prefix)
-    args = msg.content.delete_at(0..1).split(/ +/)
+cmdHandler = CmdHandler.new
 
-    i = 0
-
-    until i >= args.size
-      if args[i].empty?
-        args.delete_at(i)
-      end
-
-      i = i + 1
-    end
-
-    puts args
+client.on_message_create do |payload|
+  if payload.content.starts_with? ENV["PREFIX"]
+    cmdHandler.call(payload, client)
   end
 end
 
