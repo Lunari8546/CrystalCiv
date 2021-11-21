@@ -2,7 +2,7 @@ struct HelpCmd < Bot::CmdBase
   self.name = "help"
   self.desc = "Display all commands and its details."
 
-  def self.execute(args : Array(String)?)
+  def self.execute(args : Array(String)?, payload : Discord::Message)
     if args == [""] || args.nil?
       help_block = String.build do |str|
         Bot::CmdRegistry.cmds.each do |c|

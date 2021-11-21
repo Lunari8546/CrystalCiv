@@ -6,7 +6,7 @@ module Bot
 
     def self.to_s : String
       String.build do |str|
-        str.puts "Available Commands:"
+        str.puts "Registered Commands:"
 
         @@cmds.each do |c|
           str.puts "    #{c.name} - #{c.desc}"
@@ -18,7 +18,7 @@ module Bot
       cmd_class = @@cmds.find { |c| c.name == name }
 
       if cmd_class.nil?
-        p "No command with the name '#{name}' has been registered."
+        puts "No command with the name '#{name}' has been registered."
 
         return nil
       end

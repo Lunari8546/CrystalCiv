@@ -1,4 +1,5 @@
 require "./*"
+require "../utils/data"
 
 class CmdHandler
   def initialize
@@ -20,7 +21,7 @@ class CmdHandler
     puts "Running '#{found_cmd.name}' from #{payload.author.username}."
 
     begin
-      embed = found_cmd.execute(args)
+      embed = found_cmd.execute(args, payload)
       
       client.create_message(payload.channel_id, "", embed)
     rescue exception
