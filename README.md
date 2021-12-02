@@ -4,3 +4,14 @@
 
 # CrystalCiv
 A civilization-building strategy game with fantasy aspects in Discord.
+
+## Run
+With Sentry:
+```bash
+./sentry
+```
+
+Without Sentry:
+```bash
+crystal src/CrystalCiv.cr
+```
