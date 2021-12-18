@@ -6,7 +6,7 @@ class CmdHandler
     puts Bot::CmdRegistry.to_s
   end
 
-  def call(payload : Discord::Message, client : Discord::Client)
+  def call(payload : Discord::Message)
     cmd_name, args = parse_cmd(payload.content)
     return if cmd_name.nil?
 
@@ -21,11 +21,9 @@ class CmdHandler
     puts "Running '#{found_cmd.name}' from #{payload.author.username}."
 
     begin
-      embed = found_cmd.execute(args, payload)
-      
-      client.create_message(payload.channel_id, "", embed)
+      found_cmd.execute(args, payload)
     rescue exception
-      puts "Failed handling #{found_cmd.name}."
+      puts "Failed handling #{found_cmd.name}. #{exception.message}"
     end
   end
 

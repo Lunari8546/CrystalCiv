@@ -4,16 +4,18 @@ require "./bot/**"
 
 Config.load
 
-client = Discord::Client.new(
+CLIENT = Discord::Client.new(
   "Bot #{ENV["TOKEN"]}",
   ENV["CLIENT_ID"].to_u64
 )
 
+START_TIME = Time.monotonic
+
 cmdHandler = CmdHandler.new
 
-client.on_message_create do |payload|
+CLIENT.on_message_create do |payload|
   if payload.content.starts_with? ENV["PREFIX"]
-    cmdHandler.call(payload, client)
+    cmdHandler.call(payload)
 
     if !Data.user_exists?(payload.author.id)
       Data.user_add(payload.author.id)
@@ -21,4 +23,4 @@ client.on_message_create do |payload|
   end
 end
 
-client.run
+CLIENT.run

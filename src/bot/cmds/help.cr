@@ -10,7 +10,7 @@ struct HelpCmd < Bot::CmdBase
         end
       end
 
-      Discord::Embed.new(title: "Available Commands", description: help_block)
+      embed = Discord::Embed.new(title: "Available Commands", description: help_block)
     else
       found_cmd = Bot::CmdRegistry.find(args[0])
 
@@ -21,11 +21,13 @@ struct HelpCmd < Bot::CmdBase
           str.puts "#{found_cmd.desc}"
         end
 
-        Discord::Embed.new(
+        embed = Discord::Embed.new(
           title: "#{found_cmd.name.capitalize} Command",
           description: help_block
         )
       end
     end
+
+    CLIENT.create_message(payload.channel_id, "", embed)
   end
 end
