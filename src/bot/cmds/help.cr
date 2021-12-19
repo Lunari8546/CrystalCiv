@@ -5,8 +5,8 @@ struct HelpCmd < Bot::CmdBase
   def self.execute(args : Array(String)?, payload : Discord::Message)
     if args == [""] || args.nil?
       help_block = String.build do |str|
-        Bot::CmdRegistry.cmds.each do |c|
-          str.puts "#{c.name} - #{c.desc}"
+        Bot::CmdRegistry.cmds.each do |cmd|
+          str.puts "#{cmd.name} - #{cmd.desc}"
         end
       end
 

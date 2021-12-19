@@ -18,7 +18,7 @@ class CmdHandler
       return
     end
 
-    puts "Running '#{found_cmd.name}' from #{payload.author.username}."
+    puts "Running '#{found_cmd.name}' from #{payload.author.username}##{payload.author.discriminator}."
 
     begin
       found_cmd.execute(args, payload)
