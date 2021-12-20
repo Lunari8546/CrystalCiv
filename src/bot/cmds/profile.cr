@@ -1,5 +1,3 @@
-require "json"
-
 require "../utils/data"
 
 struct ProfileCmd < Bot::CmdBase

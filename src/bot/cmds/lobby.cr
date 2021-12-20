@@ -1,8 +1,4 @@
-require "json"
-
-require "../utils/data"
-
-struct LobbyCmd < Bot::CmdBase # WIP
+struct LobbyCmd < Bot::CmdBase
   self.name = "lobby"
   self.desc = "Creates a lobby for a new match."
 
@@ -11,17 +7,12 @@ struct LobbyCmd < Bot::CmdBase # WIP
       guild_id = payload.guild_id
 
       if guild_id
-        CLIENT.create_guild_channel(
-          guild_id: guild_id,
-          name: "Lobby",
-          type: Discord::ChannelType.new(0_u8),
-          topic: nil,
-          bitrate: nil,
-          user_limit: nil,
-          rate_limit_per_user: nil,
-          position: nil,
-          parent_id: nil,
-          nsfw: false
+        CLIENT.start_thread(
+          channel_id: payload.channel_id,
+          message_id: payload.id,
+          name: "Lobby of #{payload.author.username}#{payload.author.discriminator}",
+          auto_archive_duration: Discord::AutoArchiveDuration::Day,
+          reason: nil
         )
       end
     end

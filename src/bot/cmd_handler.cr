@@ -1,5 +1,5 @@
 require "./*"
-require "../utils/data"
+require "./utils/data"
 
 class CmdHandler
   def initialize
