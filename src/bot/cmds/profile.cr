@@ -5,18 +5,51 @@ struct ProfileCmd < Bot::CmdBase
   self.desc = "Shows the user's profile."
 
   def self.execute(args : Array(String)?, payload : Discord::Message)
+    field = Discord::EmbedField
+
     if args == [""] || args.nil?
+      data = Data.user_data(payload.author.id)
+
       embed = Discord::Embed.new(
         title: "Profile of #{payload.author.username}##{payload.author.discriminator}",
-        description: Data.user_data(payload.author.id).to_s
+        fields: [
+          field.new(
+            name: "Games Played:", value: data["stats"]["games_played"].to_s, inline: true
+          ),
+          field.new(
+            name: "Games Won:", value: data["stats"]["games_won"].to_s, inline: true
+          ),
+          field.new(
+            name: "Games Lost:", value: data["stats"]["games_lost"].to_s, inline: true
+          )
+        ]
       )
     else
       pinged = Discord::Snowflake.new(args[0].delete &.in?('[', '"', '<', '@', '!', '>', ']'))
 
-      embed = Discord::Embed.new(
-        title: "Profile of #{pinged}",
-        description: Data.user_data(pinged).to_s
-      )
+      data = Data.user_data(pinged)
+
+      if Data.user_exists?(pinged)
+        embed = Discord::Embed.new(
+          title: "Profile of #{pinged}",
+          fields: [
+            field.new(
+              name: "Games Played:", value: data["stats"]["games_played"].to_s, inline: true
+            ),
+            field.new(
+              name: "Games Won:", value: data["stats"]["games_won"].to_s, inline: true
+            ),
+            field.new(
+              name: "Games Lost:", value: data["stats"]["games_lost"].to_s, inline: true
+            )
+          ]
+        )
+      else
+        embed = Discord::Embed.new(
+          title: "Profile of #{pinged}",
+          description: "No data found."
+        )
+      end
     end
 
     CLIENT.create_message(payload.channel_id, "", embed)

@@ -8,14 +8,14 @@ module Bot
       String.build do |str|
         str.puts "Registered Commands:"
 
-        @@cmds.each do |c|
-          str.puts "    #{c.name} - #{c.desc}"
+        @@cmds.each do |cmd|
+          str.puts "    #{cmd.name} - #{cmd.desc}"
         end
       end
     end
 
     def self.find(name : String) : (Bot::CmdBase.class | Nil)
-      cmd_class = @@cmds.find { |c| c.name == name }
+      cmd_class = @@cmds.find { |cmd| cmd.name == name }
 
       if cmd_class.nil?
         puts "No command with the name '#{name}' has been registered."

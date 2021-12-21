@@ -7,7 +7,7 @@ struct Data
     obj = JSON.build do |json|
       json.object do
         json.field "stats" do
-          json.array do
+          json.object do
             json.field "games_played", 0
             json.field "games_won", 0
             json.field "games_lost", 0
@@ -30,6 +30,12 @@ struct Data
   end
 
   def self.user_exists?(user_id : Discord::Snowflake)
-    return if File.exists?("src/data/users/#{user_id}.json")
+    return true if File.exists?("src/data/users/#{user_id}.json")
+  end
+
+  def self.faction_data_all
+    factions = Dir.children("src/data/factions/")
+
+    return factions
   end
 end

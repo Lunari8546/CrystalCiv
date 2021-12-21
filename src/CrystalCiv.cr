@@ -15,11 +15,11 @@ cmdHandler = CmdHandler.new
 
 CLIENT.on_message_create do |payload|
   if payload.content.starts_with? ENV["PREFIX"]
-    cmdHandler.call(payload)
-
     if !Data.user_exists?(payload.author.id)
       Data.user_add(payload.author.id)
     end
+
+    cmdHandler.call(payload)
   end
 end
 
