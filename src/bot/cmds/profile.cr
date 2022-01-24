@@ -27,9 +27,9 @@ struct ProfileCmd < Bot::CmdBase
     else
       pinged = Discord::Snowflake.new(args[0].delete &.in?('[', '"', '<', '@', '!', '>', ']'))
 
-      data = Data.user_data(pinged)
-
       if Data.user_exists?(pinged)
+        data = Data.user_data(pinged)
+
         embed = Discord::Embed.new(
           title: "Profile of #{pinged}",
           fields: [
