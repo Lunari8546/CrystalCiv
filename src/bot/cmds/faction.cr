@@ -5,11 +5,12 @@ struct FactionCmd < Bot::CmdBase
   self.desc = "Displays info about all available factions."
 
   def self.execute(args : Array(String)?, payload : Discord::Message)
-    if args == [""] || args.nil?
-      field = Discord::EmbedField
+    if args == [""] || args.nil?     
+      factions = Array(Discord::EmbedField).new
 
       embed = Discord::Embed.new(
-        title: "Available Factions:"
+        title: "Available Factions:",
+        fields: factions
       )
     end
 

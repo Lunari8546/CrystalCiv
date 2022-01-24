@@ -24,3 +24,7 @@ CLIENT.on_message_create do |payload|
 end
 
 CLIENT.run
+
+CLIENT.status_update(
+  status: "Watching #{ENV["PREFIX"]} prefix."
+)
