@@ -2,8 +2,6 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/AegisDigital/CrystalCiv?style=for-the-badge)
 ![GitHub Repo stars](https://img.shields.io/github/stars/AegisDigital/CrystalCiv?style=for-the-badge)
 
-![Alt](https://repobeats.axiom.co/api/embed/1c3fa28009da8e34651ed9e47b133433ff377eca.svg "Repobeats analytics image")
-
 # CrystalCiv
 A civilization-building strategy game with fantasy aspects in Discord.
 
