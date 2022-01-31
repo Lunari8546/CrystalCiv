@@ -2,26 +2,11 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/AegisDigital/CrystalCiv?style=for-the-badge)
 ![GitHub Repo stars](https://img.shields.io/github/stars/AegisDigital/CrystalCiv?style=for-the-badge)
 
-![Alt](https://repobeats.axiom.co/api/embed/1c3fa28009da8e34651ed9e47b133433ff377eca.svg "Repobeats analytics image")
-
 # CrystalCiv
 A civilization-building strategy game with fantasy aspects in Discord.
 
-## Run
-> See [Sentry](https://github.com/samueleaton/sentry)
-
-With Sentry:
-```bash
-./sentry
-```
-
-Or (Without Sentry):
-```bash
-crystal src/CrystalCiv.cr
-```
-
 ## FAQ
-- Is there an official discord server? `Nope.`
+- Is there an official discord server? `Nope, not yet.`
 
 ## Developer(s)
 - [Lunari8546 (Ariz)](https://github.com/Lunari8546)

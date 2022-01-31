@@ -30,12 +30,22 @@ struct Data
   end
 
   def self.user_exists?(user_id : Discord::Snowflake)
-    return true if File.exists?("src/data/users/#{user_id}.json")
+    return File.exists?("src/data/users/#{user_id}.json")
   end
 
   def self.faction_data_all
-    factions = Dir.children("src/data/factions/")
+    data = Dir.children("src/data/factions/")
+    
+    i = 0
 
-    return factions
+    until i >= data.size
+      #if data[i].extname == ".json"
+        
+      #end
+
+      i = i + 1
+    end
+
+    return data
   end
 end

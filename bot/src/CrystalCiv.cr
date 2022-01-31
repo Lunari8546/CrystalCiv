@@ -1,6 +1,6 @@
 require "discordcr"
 
-require "./bot/**"
+require "./client/**"
 
 Config.load
 
