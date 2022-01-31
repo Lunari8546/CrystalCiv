@@ -5,21 +5,8 @@
 # CrystalCiv
 A civilization-building strategy game with fantasy aspects in Discord.
 
-## Run
-> See [Sentry](https://github.com/samueleaton/sentry)
-
-With Sentry:
-```bash
-./sentry
-```
-
-Or (Without Sentry):
-```bash
-crystal src/CrystalCiv.cr
-```
-
 ## FAQ
-- Is there an official discord server? `Nope.`
+- Is there an official discord server? `Nope, not yet.`
 
 ## Developer(s)
 - [Lunari8546 (Ariz)](https://github.com/Lunari8546)
