@@ -33,17 +33,43 @@ struct Data
     return File.exists?("src/data/users/#{user_id}.json")
   end
 
-  def self.faction_data_all
-    data = Dir.children("src/data/factions/")
+  def self.faction_data(name : String = "")
+    data = Array(Hash(String, String)).new
+
+    if name.blank?
+      files = Dir.children("src/data/factions/")
     
-    i = 0
+      i = 0
 
-    until i >= data.size
-      #if data[i].extname == ".json"
-        
-      #end
+      until i >= files.size
+        path = "src/data/factions/#{files[i]}"
 
-      i = i + 1
+        if !File.file?(path) || File.extname(path) != ".json"
+          files.delete_at(i)
+        else
+          parsed = File.open(path) do |file|
+            JSON.parse(file)
+          end
+
+          data.push(
+            {"name" => parsed["name"].to_s, "desc" => parsed["desc"].to_s}
+          )
+
+          i = i + 1
+        end
+      end
+    else
+      name = name.downcase
+
+      if File.exists?("src/data/factions/#{name}.json")
+        parsed = File.open("src/data/factions/#{name}.json") do |file|
+          JSON.parse(file)
+        end
+
+        data.push(
+          {"name" => parsed["name"].to_s, "desc" => parsed["desc"].to_s}
+        )
+      end
     end
 
     return data
