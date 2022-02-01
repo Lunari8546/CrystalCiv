@@ -1,0 +1,12 @@
+name: bot
+version: 0.1.0
+
+authors:
+  - Lunari8546 <lunari8546@gmail.com>
+
+description: 
+  Website for CrystalCiv.
+
+dependencies:
+  kemal:
+    github: kemalcr/kemal

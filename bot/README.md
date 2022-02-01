@@ -10,5 +10,5 @@ With Sentry:
 
 Or (Without Sentry):
 ```bash
-crystal src/CrystalCiv.cr
+crystal src/bot.cr
 ```
