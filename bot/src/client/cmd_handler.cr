@@ -1,3 +1,5 @@
+require "colorize"
+
 require "./*"
 require "./utils/data"
 
@@ -13,17 +15,19 @@ class CmdHandler
     found_cmd = Bot::CmdRegistry.find(cmd_name)
 
     if found_cmd.nil?
-      puts "'#{cmd_name}' command not found."
-      
       return
     end
 
-    puts "Running '#{found_cmd.name}' from #{payload.author.username}##{payload.author.discriminator}."
+    infomsg = "Running '#{found_cmd.name}' from #{payload.author.username}##{payload.author.discriminator}."
+
+    puts infomsg.colorize.fore(:green)
 
     begin
       found_cmd.execute(args, payload)
     rescue exception
-      puts "Failed handling #{found_cmd.name}. #{exception.message}"
+      errmsg = "Failed handling #{found_cmd.name}. #{exception.message}"
+
+      puts errmsg.colorize.fore(:red).back(:black)
     end
   end
 

@@ -18,8 +18,6 @@ module Bot
       cmd_class = @@cmds.find { |cmd| cmd.name == name }
 
       if cmd_class.nil?
-        puts "No command with the name '#{name}' has been registered."
-
         return nil
       end
 

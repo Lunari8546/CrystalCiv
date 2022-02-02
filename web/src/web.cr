@@ -1,7 +1,7 @@
 require "kemal"
 
 get "/" do
-  "Hello World from Kemal!"
+  render "src/views/landing.ecr"
 end
 
 Kemal.run
