@@ -1,0 +1,20 @@
+{
+  "name": "Elves",
+  "desc": "WIP",
+  "icon": "",
+  "units": [
+    {
+      "name": "Infantry",
+      "hitpoint": 30,
+      "damage": 10,
+      "ability": null
+    }
+  ],
+  "buildings": [
+    {
+      "name": "Castle",
+      "hitpoint": 1000,
+      "ability": null
+    }
+  ]
+}

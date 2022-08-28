@@ -27,10 +27,8 @@ struct FactionCmd < Bot::CmdBase
       data = Data.faction_data(args[0])
 
       embed = Discord::Embed.new(
-        title: "Available Factions:",
-        fields: [Discord::EmbedField.new(
-          name: data[0]["name"], value: data[0]["desc"]
-        )]
+        title: data[0]["name"],
+        description: data[0]["desc"]
       )
     end
 

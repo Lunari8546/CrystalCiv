@@ -1,5 +1,5 @@
 bot
 .env
 lib/
-src/data
+src/data/users
 shard.lock

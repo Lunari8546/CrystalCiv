@@ -1,0 +1,20 @@
+{
+  "name": "Human",
+  "desc": "An all-rounded faction with easy control.",
+  "icon": "",
+  "units": [
+    {
+      "name": "Infantry",
+      "hitpoint": 30,
+      "damage": 10,
+      "ability": null
+    }
+  ],
+  "buildings": [
+    {
+      "name": "Castle",
+      "hitpoint": 1000,
+      "ability": null
+    }
+  ]
+}

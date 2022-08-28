@@ -1,4 +1,4 @@
-require "../game/core"
+require "../game/lobby"
 
 struct LobbyCmd < Bot::CmdBase
   self.name = "lobby"
@@ -14,7 +14,7 @@ struct LobbyCmd < Bot::CmdBase
         reason: nil
       )
 
-      Game::Core.match_new(thread.id)
+      Game::Lobby.new(thread.id)
     end
   end
 end

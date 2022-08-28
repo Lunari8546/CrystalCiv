@@ -1,8 +1,8 @@
 require "./terrain"
 
 module Game
-  struct Core
-    def self.match_new(channel_id : Discord::Snowflake)
+  struct Lobby
+    def initialize(channel_id : Discord::Snowflake)
       choices = Array(Discord::EmbedField).new
 
       i = 0

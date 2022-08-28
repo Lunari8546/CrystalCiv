@@ -13,8 +13,9 @@ struct AboutCmd < Bot::CmdBase
         title: "About the Bot:",
         description: "A civilization-building strategy game with fantasy aspects in Discord.",
         fields: [
-          field.new(name: "Version", value: "Infdev", inline: true),
-          field.new(name: "Uptime", value: uptime_str, inline: true)
+          field.new(name: "Version", value: "[Offical] Infdev", inline: true),
+          field.new(name: "Uptime", value: uptime_str, inline: true),
+          field.new(name: "Developer(s)", value: "Lunari8546 (Ariz)")
         ]
       )
     end

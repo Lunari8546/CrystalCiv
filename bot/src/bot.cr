@@ -23,4 +23,8 @@ CLIENT.on_message_create do |payload|
   end
 end
 
+CLIENT.on_ready do
+  CLIENT.status_update("idle")
+end
+
 CLIENT.run
